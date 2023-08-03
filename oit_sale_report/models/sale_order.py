@@ -22,6 +22,10 @@ class SaleOrder(models.Model):
 
     def compute_child_ids(self):
         for rec in self:
-            for record in rec.partner_id.child_ids:
-                rec.child_ids = [(4, record.id)]
+            if rec.partner_id.child_ids:
+                for record in rec.partner_id.child_ids:
+                    rec.child_ids = [(4, record.id)]
+            else:
+                rec.child_ids = False
+
 
