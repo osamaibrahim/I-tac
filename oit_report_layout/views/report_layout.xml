@@ -1,0 +1,71 @@
+<data>
+    <template id="invoice_external_layout_standard"
+              inherit_id="web.external_layout_standard">
+        <xpath expr="//div[contains(@t-attf-class,'header')]" position="replace">
+            <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style" dir="auto" style="font-family: HelveticaNeue, Arial,sans-serif;">
+                <div class="o_boxed_header">
+                    <div class="col-3 mb4">
+                        <img style="max-width: 600%;max-height:200px;" align="center" t-if="company.header"
+                             t-att-src="image_data_uri(company.header)" alt="Logo"/>
+                    </div>
+<!--                    <strong>Vat No:</strong><span t-field="company.vat"/><br/>-->
+<!--                    <strong>CR No:</strong>-->
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//div[@t-attf-class='footer o_standard_footer o_company_#{company.id}_layout']" position="replace">
+            <!--        <xpath expr="//div[contains(@t-attf-class,'footer')]/div" position="inside">-->
+            <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+            <div class="col-4">
+                <img t-if="company.footer" t-att-src="image_data_uri(company.footer)"
+                     style="max-width: 600%;max-height:200px;" alt="Logo"/>
+            </div>
+            </div>
+        </xpath>
+    </template>
+    <template id="invoice_external_layout_boxed"
+              inherit_id="web.external_layout_boxed">
+        <xpath expr="//div[contains(@t-attf-class,'header')]" position="replace">
+            <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style" dir="auto" style="font-family: HelveticaNeue, Arial,sans-serif;">
+                <div class="o_boxed_header">
+                    <div class="col-3 mb4">
+                        <img style="max-width: 600%;max-height:200px;" align="center" t-if="company.header"
+                             t-att-src="image_data_uri(company.header)" alt="Logo"/>
+                    </div>
+<!--                    <strong>Vat No:</strong><span t-field="company.vat"/><br/>-->
+<!--                    <strong>CR No:</strong>-->
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//div[@t-attf-class='footer o_boxed_footer o_company_#{company.id}_layout']" position="replace">
+            <!--        <xpath expr="//div[contains(@t-attf-class,'footer')]/div" position="inside">-->
+            <div t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout">
+            <div class="col-4">
+                <img t-if="company.footer" t-att-src="image_data_uri(company.footer)"
+                     style="max-width: 600%;max-height:200px;" alt="Logo"/>
+            </div>
+            </div>
+        </xpath>
+    </template>
+
+<!--    <template id="internal_layout"-->
+<!--              inherit_id="web.internal_layout">-->
+<!--        <xpath expr="//div[@class='article']" position="after">-->
+<!--            <div class="footer">-->
+<!--                <div class="col-3 mb4">-->
+<!--                    <img style="max-width: 800%;max-height:200px;" align="center" t-if="env.company.footer"-->
+<!--                         t-att-src="image_data_uri(env.company.footer)" alt="Logo"/>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </xpath>-->
+<!--&lt;!&ndash;        <xpath expr="//div[@class='header']" position="replace">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div class="header">&ndash;&gt;-->
+<!--&lt;!&ndash;                <div class="col-3 mb4">&ndash;&gt;-->
+<!--&lt;!&ndash;                    <img style="max-width: 800%;max-height:200px;" align="center" t-if="env.company.header"&ndash;&gt;-->
+<!--&lt;!&ndash;                         t-att-src="image_data_uri(env.company.header)" alt="Logo"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </xpath>&ndash;&gt;-->
+
+<!--    </template>-->
+</data>

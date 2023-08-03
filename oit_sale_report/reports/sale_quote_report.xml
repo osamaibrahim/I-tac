@@ -1,0 +1,283 @@
+<data>
+    <template id="new_sale_quote_template_id">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 style="text-align: center;">
+                            <span style="font-size:20px;">HELIPAD LIGHTING SYSTEM COMMERCIAL OFFER</span>
+                        </h2>
+                        <br/>
+                        <div class="row" style="font-weight: bold;">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-4 text-left">
+                                        Q/No
+                                    </div>
+                                    <div class="col-6 text-center">
+                                        <span t-field="o.name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 text-left">
+                                        Dated:
+                                    </div>
+                                    <div class="col-6 text-center">
+                                        <span t-field="o.date_order"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 text-left">
+                                        To:
+                                    </div>
+                                    <div class="col-6 text-center">
+                                        <span t-field="o.partner_id.name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 text-left">
+                                        ATTENTION :
+                                    </div>
+                                    <div class="col-6 text-center">
+                                        <span t-field="o.child_ids"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 text-left">
+                                        Subject :
+                                    </div>
+                                    <div class="col-6 text-center">
+                                        <span t-field="o.subject"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 text-left">
+                                        OUR REF :
+                                    </div>
+                                    <div class="col-6 text-center">
+                                        <span t-field="o.client_order_ref"/>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                --------------------------------------------------------------------------------------------------
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            Dear Sir,
+                        </div>
+                        <br/>
+                        <div class="row">
+                            We thank you for your enquiry and considering I-TAC Group as a specialist facilitator of
+                            your project. We have pleasure in furnishing you with our offer for the following:
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-9" style="font-weight: bold;">
+                                TERMS AND CONDITIONS:
+                            </div>
+                        </div>
+                        <p t-field="o.note" class="mt-4"/>
+                        <br/>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-4 text-left">
+                                        Thank you and best regards,
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 text-left">
+                                        <span t-field="o.user_id.signature"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 text-left" style="font-weight: bold;">
+                                        <span t-field="o.user_id.name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 text-left">
+                                        <span t-field="o.user_id.partner_id.function"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 text-left">
+                                        <span t-field="o.user_id.partner_id.company_name"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 text-left">
+                                        Email:
+                                    </div>
+                                    <span t-field="o.partner_id.email"/>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 text-left">
+                                        Mobile:
+                                    </div>
+                                    <span t-field="o.partner_id.phone"/>
+                                </div>
+
+                            </div>
+                        </div>
+                        <br/>
+                        <t t-set="display_discount" t-value="any(l.discount for l in o.order_line)"/>
+
+                        <div class="row">
+                            <table class="table table-bordered"
+                                   style="border: 1px solid black">
+                                <!-- In case we want to repeat the header, remove "display: table-row-group" -->
+                                <thead style="border: 1px solid black">
+                                    <tr style="border: 2px solid black;">
+                                        <th style="border: 1px solid black" name="th_description" class="text-center">
+                                            Item
+                                        </th>
+                                        <th style="border: 1px solid black" name="th_description" class="text-center">
+                                            Description
+                                        </th>
+                                        <th style="border: 1px solid black" name="th_quantity" class="text-center">
+                                            Picture
+                                        </th>
+                                        <th style="border: 1px solid black" name="th_priceunit" class="text-center">
+                                            Qty.
+                                        </th>
+                                        <th style="border: 1px solid black" name="th_priceunit" class="text-center">
+                                            Model No.
+                                        </th>
+                                        <th style="border: 1px solid black" name="th_price" class="text-center">Unit
+                                            Unit Price in SAR
+                                        </th>
+                                        <th style="border: 1px solid black" name="th_total" class="text-center">Total in
+                                            Total Price in SAR
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="sale_tbody">
+
+                                    <t t-set="current_subtotal" t-value="0"/>
+                                    <t t-set="index" t-value="0"/>
+
+                                    <t t-foreach="o.order_line" t-as="line">
+
+                                        <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal"
+                                           groups="account.group_show_line_subtotals_tax_excluded"/>
+                                        <t t-set="current_subtotal" t-value="current_subtotal + line.price_total"
+                                           groups="account.group_show_line_subtotals_tax_included"/>
+
+                                        <tr t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''">
+                                            <t t-if="not line.display_type">
+                                                <t t-set="index" t-value="index + 1"/>
+                                                <td style="border: 1px solid black" class="text-center">
+                                                    <span t-esc="index"/>
+                                                </td>
+                                                <td style="border: 1px solid black" class="text-center">
+                                                    <span t-field="line.name"/>
+                                                </td>
+                                                <td style="border: 1px solid black" class="text-center">
+                                                    <img t-if="line.image_128"
+                                                         t-att-src="'data:image/png;base64,%s' % to_text(line.image_128)"
+                                                         style="width: 90%"/>
+                                                </td>
+                                                <td style="border: 1px solid black" class="text-center">
+                                                    <span t-field="line.product_uom_qty"/>
+                                                </td>
+                                                <td style="border: 1px solid black" class="text-center">
+                                                    <span t-field="line.product_uom"/>
+                                                </td>
+                                                <td style="border: 1px solid black" class="text-center">
+                                                    <span t-field="line.price_unit"/>
+                                                </td>
+                                                <td style="border: 1px solid black" class="text-center">
+                                                    <span t-field="line.price_subtotal"/>
+                                                </td>
+
+                                            </t>
+                                            <t t-if="line.display_type == 'line_section'">
+                                                <td style="border: 1px solid black" name="td_section_line" colspan="99">
+                                                    <span t-field="line.name"/>
+                                                </td>
+                                                <t t-set="current_section" t-value="line"/>
+                                                <t t-set="current_subtotal" t-value="0"/>
+                                            </t>
+                                            <t t-if="line.display_type == 'line_note'">
+                                                <td style="border: 1px solid black" name="td_note_line" colspan="99">
+                                                    <span t-field="line.name"/>
+                                                </td>
+                                            </t>
+                                        </tr>
+
+
+                                        <t t-if="current_section and (line_last or o.order_line[line_index+1].display_type == 'line_section')">
+                                            <tr class="is-subtotal text-right">
+                                                <td style="border: 1px solid black" name="td_section_subtotal"
+                                                    colspan="99">
+                                                    <strong class="mr16">Subtotal</strong>
+                                                    <span
+                                                            t-esc="current_subtotal"
+                                                            t-options='{"widget": "monetary", "display_currency": o.pricelist_id.currency_id}'
+                                                    />
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </t>
+                                    <tr style="border: 1px solid black;line-height: 50%;">
+                                        <td style="border: 1px solid black" class="text-center"
+                                            name="td_amount_untaxed_label" colspan="6">
+                                            <strong>alue Added Tax – VAT 15% Extra</strong>
+                                        </td>
+                                        <td style="border: 1px solid black" name="td_amount_untaxed" class="text-center"
+                                            colspan="2">
+                                            <span t-field="o.amount_tax"/>
+                                        </td>
+                                    </tr>
+                                    <tr style="border: 1px solid black;line-height: 50%;">
+                                        <td style="border: 1px solid black" class="text-center"
+                                            name="td_amount_untaxed_label" colspan="6">
+                                            <strong>Gross Total Price in Saudi Riyals</strong>
+                                        </td>
+                                        <td style="border: 1px solid black" name="td_amount_untaxed" class="text-center"
+                                            colspan="2">
+                                            <span t-field="o.amount_total"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+
+                            </table>
+
+                        </div>
+
+                        <br/>
+                        <div class="row">
+                            <div class="col-9" style="font-weight: bold;">
+                                Notes:
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <span t-field="o.notes"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <report id="edit_sale_quote_template_id_report"
+            model="sale.order"
+            string="HELIPAD LIGHTING SYSTEM COMMERCIAL OFFER"
+            report_type="qweb-pdf"
+            name="oit_sale_report.new_sale_quote_template_id"
+            file="oit_sale_report.new_sale_quote_template_id"
+            attachment_use="True"
+    />
+
+
+</data>

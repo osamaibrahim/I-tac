@@ -1,0 +1,22 @@
+<data>
+    <record id="inherit_res_company_form" model="ir.ui.view">
+        <field name="name">inherit.res.company.form</field>
+        <field name="model">res.company</field>
+        <!--<field name="groups_id" eval="[(4, ref(''))]"/>-->
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <notebook>
+                    <page name="report_layout" string="Report Layout">
+                        <group>
+                            <field name="header" widget="image" class="float-left oe_avatar" />
+                            <field name="footer" widget="image" class="float-left oe_avatar" />
+                        </group>
+                    </page>
+                </notebook>
+
+            </xpath>
+
+        </field>
+    </record>
+</data>
