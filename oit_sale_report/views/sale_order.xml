@@ -8,7 +8,7 @@
                 <button name="%(new_sale_quote_template_id_report)d" string='Quotation report'
                         type='action'
                         class="btn-primary"
-                        attrs="{'invisible': [('state', '!=', 'sale')]}"/>
+                        attrs="{'invisible': [('state', '!=', 'approved')]}"/>
             </xpath>
             <xpath expr="//field[@name='partner_shipping_id']" position="after">
                 <field name="subject"/>
