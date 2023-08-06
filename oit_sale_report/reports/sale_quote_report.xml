@@ -4,61 +4,51 @@
             <t t-call="web.html_container">
                 <t t-call="web.external_layout">
                     <div class="page">
-                        <h2 style="text-align: center;">
-                            <span style="font-size:20px;">HELIPAD LIGHTING SYSTEM COMMERCIAL OFFER</span>
-                        </h2>
-                        <br/>
-                        <div class="row" style="font-weight: bold;">
-                            <div class="col-12">
-                                <div class="row">
-                                    <div class="col-4 text-left">
-                                        Q/No
-                                    </div>
-                                    <div class="col-6 text-center">
-                                        <span t-field="o.name"/>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-4 text-left">
-                                        Dated:
-                                    </div>
-                                    <div class="col-6 text-center">
-                                        <span t-field="o.date_order"/>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-4 text-left">
-                                        To:
-                                    </div>
-                                    <div class="col-6 text-center">
-                                        <span t-field="o.partner_id.name"/>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-4 text-left">
-                                        ATTENTION :
-                                    </div>
-                                    <div class="col-6 text-center">
-                                        <span t-field="o.child_ids"/>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-4 text-left">
-                                        Subject :
-                                    </div>
-                                    <div class="col-6 text-center">
-                                        <span t-field="o.subject"/>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-4 text-left">
-                                        OUR REF :
-                                    </div>
-                                    <div class="col-6 text-center">
-                                        <span t-field="o.client_order_ref"/>
-                                    </div>
-                                </div>
-
+                        <div class="row">
+                            <div class="col-6">
+                                <table class="table table-bordered" style="border:0px solid white">
+                                    <tbody style="border:0px solid white">
+                                        <tr style="line-height: 50%;border:0px solid white">
+                                            <td class="text-left" style="border:0px solid white">Q/No</td>
+                                            <td class="text-left" style="border:0px solid white">
+                                                <span t-field="o.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="line-height: 100%;">
+                                            <td class="text-left" style="border:0px solid white">Dated:</td>
+                                            <td class="text-left" style="border:0px solid white">
+                                                <span t-field="o.date_order"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="line-height: 100%;">
+                                            <td class="text-left" style="border:0px solid white">To:</td>
+                                            <td class="text-left" style="border:0px solid white">
+                                                <span t-field="o.partner_id.name" style="border:0px solid white"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="line-height: 100%;">
+                                            <td class="text-left" style="border:0px solid white">ATTENTION :</td>
+                                            <td class="text-left" style="border:0px solid white">
+                                                <span t-field="o.attention_id.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="line-height: 100%;">
+                                            <td class="text-left" style="border:0px solid white">Subject:</td>
+                                            <td class="text-left" style="border:0px solid white">
+                                                <span t-field="o.subject"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="line-height: 100%;">
+                                            <td class="text-left" style="border:0px solid white">OUR REF :</td>
+                                            <td class="text-left" style="border:0px solid white">
+                                                <span t-field="o.client_order_ref"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-1"/>
+                            <div class="col-5">
                             </div>
                         </div>
 
@@ -69,12 +59,7 @@
                         </div>
                         <br/>
                         <div class="row">
-                            Dear Sir,
-                        </div>
-                        <br/>
-                        <div class="row">
-                            We thank you for your enquiry and considering I-TAC Group as a specialist facilitator of
-                            your project. We have pleasure in furnishing you with our offer for the following:
+                            <span t-field="o.email_body_template"/>
                         </div>
                         <br/>
                         <div class="row">
@@ -103,25 +88,25 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-6 text-left">
-                                        <span t-field="o.user_id.partner_id.function"/>
+                                        <span t-field="o.user_id.function"/>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6 text-left">
-                                        <span t-field="o.user_id.partner_id.company_name"/>
+                                        <span t-field="o.user_id.company_id.name"/>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-4 text-left">
                                         Email:
                                     </div>
-                                    <span t-field="o.partner_id.email"/>
+                                    <span t-field="o.user_id.login"/>
                                 </div>
                                 <div class="row">
                                     <div class="col-4 text-left">
                                         Mobile:
                                     </div>
-                                    <span t-field="o.partner_id.phone"/>
+                                    <span t-field="o.user_id.mobile"/>
                                 </div>
 
                             </div>
@@ -150,10 +135,10 @@
                                         <th style="border: 1px solid black" name="th_priceunit" class="text-center">
                                             Model No.
                                         </th>
-                                        <th style="border: 1px solid black" name="th_price" class="text-center">Unit
+                                        <th style="border: 1px solid black" name="th_price" class="text-center">
                                             Unit Price in SAR
                                         </th>
-                                        <th style="border: 1px solid black" name="th_total" class="text-center">Total in
+                                        <th style="border: 1px solid black" name="th_total" class="text-center">
                                             Total Price in SAR
                                         </th>
                                     </tr>
@@ -188,7 +173,7 @@
                                                     <span t-field="line.product_uom_qty"/>
                                                 </td>
                                                 <td style="border: 1px solid black" class="text-center">
-                                                    <span t-field="line.product_uom"/>
+                                                    <span t-field="line.product_id.model_id.name"/>
                                                 </td>
                                                 <td style="border: 1px solid black" class="text-center">
                                                     <span t-field="line.price_unit"/>
@@ -229,7 +214,7 @@
                                     <tr style="border: 1px solid black;line-height: 50%;">
                                         <td style="border: 1px solid black" class="text-center"
                                             name="td_amount_untaxed_label" colspan="6">
-                                            <strong>alue Added Tax – VAT 15% Extra</strong>
+                                            <strong>Value Added Tax – VAT 15% Extra</strong>
                                         </td>
                                         <td style="border: 1px solid black" name="td_amount_untaxed" class="text-center"
                                             colspan="2">
@@ -269,15 +254,14 @@
             </t>
         </t>
     </template>
-
-    <report id="edit_sale_quote_template_id_report"
-            model="sale.order"
-            string="HELIPAD LIGHTING SYSTEM COMMERCIAL OFFER"
-            report_type="qweb-pdf"
-            name="oit_sale_report.new_sale_quote_template_id"
-            file="oit_sale_report.new_sale_quote_template_id"
-            attachment_use="True"
-    />
+    <record id="new_sale_quote_template_id_report" model="ir.actions.report">
+            <field name="name">Quotation Report</field>
+            <field name="model">sale.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">oit_sale_report.new_sale_quote_template_id</field>
+            <field name="report_file">oit_sale_report.new_sale_quote_template_id</field>
+            <field name="binding_type">report</field>
+        </record>
 
 
 </data>

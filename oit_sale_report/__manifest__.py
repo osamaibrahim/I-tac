@@ -16,9 +16,13 @@
         'sale_order_line_product_image',
     ],
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
+        'views/res_config_settings_views.xml',
+'reports/sale_quote_report.xml',
+'reports/layouts.xml',
         'views/sale_order.xml',
-        'reports/layouts.xml',
+        'views/product_template.xml',
+
         'reports/sale_quote_report.xml',
     ],
     'demo': [
