@@ -28,6 +28,7 @@ class SaleOrder(models.Model):
         'Notes'
     )
 
+    @api.depends('partner_id')
     def compute_child_ids(self):
         for rec in self:
             if rec.partner_id.child_ids:

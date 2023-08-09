@@ -13,6 +13,7 @@
         'sale',
         'account',
         'sale_management',
+        'oit_sale_customize',
         'sale_order_line_product_image',
     ],
     'data': [
