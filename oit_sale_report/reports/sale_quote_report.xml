@@ -11,7 +11,16 @@
                                         <tr style="line-height: 50%;border:0px solid white">
                                             <td class="text-left" style="border:0px solid white">Q/No</td>
                                             <td class="text-left" style="border:0px solid white">
-                                                <span t-field="o.name"/>
+                                                <div class="row">
+                                                   <span t-field="o.sales_person_abbreviation"/>
+                                                    -
+                                                    <span t-field="o.department_id.department_abbreviation"/>
+                                                    -
+                                                    <span t-esc="o.date_order.strftime('%y')"/>
+                                                    <span t-esc="o.date_order.strftime('%m')"/>
+                                                    -
+                                                    <span t-field="o.name"/>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr style="line-height: 100%;">
@@ -255,13 +264,13 @@
         </t>
     </template>
     <record id="new_sale_quote_template_id_report" model="ir.actions.report">
-            <field name="name">Quotation Report</field>
-            <field name="model">sale.order</field>
-            <field name="report_type">qweb-pdf</field>
-            <field name="report_name">oit_sale_report.new_sale_quote_template_id</field>
-            <field name="report_file">oit_sale_report.new_sale_quote_template_id</field>
-            <field name="binding_type">report</field>
-        </record>
+        <field name="name">Quotation Report</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">oit_sale_report.new_sale_quote_template_id</field>
+        <field name="report_file">oit_sale_report.new_sale_quote_template_id</field>
+        <field name="binding_type">report</field>
+    </record>
 
 
 </data>

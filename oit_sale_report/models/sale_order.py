@@ -13,9 +13,11 @@ class SaleOrder(models.Model):
         string='Email Body Template',
         compute='compute_email_body_template'
     )
-
     subject = fields.Char(
         'Subject'
+    )
+    sales_person_abbreviation = fields.Char(
+        'Sales Person Abbreviation',
     )
     child_ids = fields.Many2many(
         'res.partner',
@@ -27,6 +29,10 @@ class SaleOrder(models.Model):
     notes = fields.Text(
         'Notes'
     )
+    department_id = fields.Many2one(
+        'hr.department'
+    )
+
 
     @api.depends('partner_id')
     def compute_child_ids(self):

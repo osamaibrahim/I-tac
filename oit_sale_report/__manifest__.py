@@ -11,6 +11,7 @@
     'sequence': 1,
     'depends': [
         'sale',
+        'hr',
         'account',
         'sale_management',
         'oit_sale_customize',
@@ -23,6 +24,7 @@
 'reports/layouts.xml',
         'views/sale_order.xml',
         'views/product_template.xml',
+        'views/hr_department.xml',
 
         'reports/sale_quote_report.xml',
     ],
