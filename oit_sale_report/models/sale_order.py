@@ -16,9 +16,6 @@ class SaleOrder(models.Model):
     subject = fields.Char(
         'Subject'
     )
-    sales_person_abbreviation = fields.Char(
-        'Sales Person Abbreviation',
-    )
     child_ids = fields.Many2many(
         'res.partner',
         compute='compute_child_ids'

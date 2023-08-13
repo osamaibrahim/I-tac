@@ -12,9 +12,9 @@
                                             <td class="text-left" style="border:0px solid white">Q/No</td>
                                             <td class="text-left" style="border:0px solid white">
                                                 <div class="row">
-                                                   <span t-field="o.sales_person_abbreviation"/>
-                                                    -
                                                     <span t-field="o.department_id.department_abbreviation"/>
+                                                    -
+                                                    <span t-field="o.user_id.sales_person_abbreviation"/>
                                                     -
                                                     <span t-esc="o.date_order.strftime('%y')"/>
                                                     <span t-esc="o.date_order.strftime('%m')"/>
@@ -78,7 +78,7 @@
                         </div>
                         <p t-field="o.note" class="mt-4"/>
                         <br/>
-                        <div class="row">
+                        <div class="row" style="page-break-after:always;">
                             <div class="col-12">
                                 <div class="row">
                                     <div class="col-4 text-left">
