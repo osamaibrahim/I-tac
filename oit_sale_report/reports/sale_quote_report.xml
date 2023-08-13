@@ -76,11 +76,11 @@
                                 TERMS AND CONDITIONS:
                             </div>
                         </div>
-                        <p t-field="o.note" class="mt-4" style="page-break-after:always;"/>
+                        <p t-field="o.note" class="mt-4"/>
                         <br/>
                         <div class="row">
                             <div class="col-12">
-                                <div class="row">
+                                <div class="row" style="page-break-after:always;">
                                     <div class="col-4 text-left">
                                         Thank you and best regards,
                                     </div>
