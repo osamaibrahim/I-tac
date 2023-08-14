@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="external_layout_boxed2">
+            <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+                <div class="o_boxed_header">
+<!--                    <div class="row mb8">-->
+                        <div class="row">
+                            <div class="col-12">
+                                <img src="/sale_report/static/description/img/header.png" style="max-height: 150px;"
+                                     alt="Logo"/>
+                                <div class="col-12">
+                                    <div style="border-bottom: 2px solid black;"/>
+                                </div>
+                            </div>
+                        </div>
+<!--                    </div>-->
+                </div>
+            </div>
+            <div t-attf-class="article o_report_layout_standard o_company_#{company.id}_layout" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id"
+                 t-att-data-oe-lang="o and o.env.context.get('lang')">
+                <div class="pt-5">
+                    <t t-call="web.address_layout"/>
+                </div>
+                <t t-raw="0"/>
+            </div>
+            <div t-attf-class="footer o_clean_footer o_company_#{company.id}_layout">
+                <di class="row">
+                    <div class="col-12 text-center">
+                        <div class="row">
+                            <div class="col-10 text-center" style="padding-left:100px;">
+                                <t t-if="company.partner_id.street">
+                                    <span t-esc="company.partner_id.street"/>,
+                                </t>
+                                <t t-if="company.partner_id.street2">
+                                    <span t-field="company.partner_id.street2"/>,
+                                </t>
+                                <t t-if="company.partner_id.city">
+                                    <span t-field="company.partner_id.city"/>,
+                                </t>
+                                <t t-if="company.partner_id.state_id">
+                                    <span t-field="company.partner_id.state_id"/>,
+                                </t>
+                                <t t-if="company.partner_id.country_id">
+                                    <span t-field="company.partner_id.country_id"/>
+                                </t>
+                            </div>
+                            <div class="col-2 text-left">
+                                <div t-if="report_type == 'pdf'">
+                                    Page:
+                                    <span class="page"/>
+                                    /
+                                    <span class="topage"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 text-right">
+                                Tel:
+                                <span t-field="company.partner_id.phone"/>
+                            </div>
+                            <div class="col-6 text-left">
+                                Fax:
+                                <span t-field="company.partner_id.fax"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 text-right">
+                                Email:
+                                <span t-field="company.partner_id.email"
+                                      style="text-decoration:underline;font-color:blue !important;"/>
+                            </div>
+                            <div class="col-6 text-left">
+                                Website:
+                                <span t-field="company.partner_id.website"
+                                      style="text-decoration:underline;font-color:blue !important;"/>
+                            </div>
+                        </div>
+                    </div>
+                </di>
+            </div>
+        </template>
+        <template id="external_layout">
+            <t t-if="not o" t-set="o" t-value="doc"/>
+
+            <t t-if="not company">
+                <!-- Multicompany -->
+                <t t-if="company_id">
+                    <t t-set="company" t-value="company_id"/>
+                </t>
+                <t t-elif="o and 'company_id' in o">
+                    <t t-set="company" t-value="o.company_id.sudo()"/>
+                </t>
+                <t t-else="else">
+                    <t t-set="company" t-value="res_company"/>
+                </t>
+            </t>
+            <t t-call="sale_report.external_layout_boxed2">
+                <t t-raw="0"/>
+            </t>
+
+        </template>
+
+    </data>
+</odoo>

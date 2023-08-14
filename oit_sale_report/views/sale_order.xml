@@ -1,0 +1,31 @@
+<data>
+    <record id="inherit_sale_order_form_sub" model="ir.ui.view">
+        <field name="name">inherit.sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="%(new_sale_quote_template_id_report)d" string='Quotation report'
+                        type='action'
+                        class="btn-primary"
+                        attrs="{'invisible': [('state', '!=', 'approved')]}"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_shipping_id']" position="after">
+                <field name="subject"/>
+                <field name="department_id"/>
+                <field name="attention_id" domain="[('id', 'in', child_ids)]"/>
+                <field name="email_body_template" invisible="1"/>
+                <field name="child_ids" widget="many2many_tags" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='child_ids']" position="after">
+                <field name="client_order_ref" position="move"/>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Notes">
+                    <field name="notes"/>
+                </page>
+
+            </xpath>
+        </field>
+    </record>
+</data>

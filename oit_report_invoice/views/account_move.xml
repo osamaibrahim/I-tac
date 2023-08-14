@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="edit_view_account_move_form_inherit" model="ir.ui.view">
+        <field name="name">new.inherit.account.move.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_reference']" position="after">
+                <field name="num_word" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="lc_number"/>
+                <field name="po_box"/>
+                <field name="project_name"/>
+                <field name="date_of_issue"/>
+                <field name="no_show"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
