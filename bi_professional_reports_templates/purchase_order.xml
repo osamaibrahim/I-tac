@@ -9,9 +9,10 @@
                 <field name="fob"/>
                 <field name="ship_via"/>
             </field>
-            <field name="tax_totals" position="after">
+            <field name="tax_totals_json" position="after">
                 <field name="shipping"/>
                 <field name="other"/>
+                <field name="final_total"/>
             </field>
         </field>
     </record>

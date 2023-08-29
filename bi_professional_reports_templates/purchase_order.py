@@ -19,3 +19,7 @@ class PurchaseOrder(models.Model):
     ship_via = fields.Char()
     shipping = fields.Float()
     other = fields.Float()
+    final_total = fields.Float('Total After shipping and Other',compute='compute_final_total')
+    def compute_final_total(self):
+        for rec in self:
+            rec.final_total = rec.amount_total + rec.shipping + rec.other

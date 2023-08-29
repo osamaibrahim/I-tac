@@ -41,6 +41,7 @@
         "purchase_report/modern_report_purchasequotation.xml",
         "purchase_report/odoo_standard_report_purchaseorder.xml",
         "purchase_report/odoo_standard_report_purchasequotation.xml",
+        "purchase_order.xml",
 
         "sale_report/classic_report_saleorder.xml",
         "sale_report/fency_report_saleorder.xml",
