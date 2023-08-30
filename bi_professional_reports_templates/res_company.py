@@ -37,6 +37,27 @@ class account_invoice(models.Model):
 
     paypal_chk = fields.Boolean("Paypal")
     paypal_id = fields.Char("Paypal Id")
+    shipping = fields.Float(compute='compute_final_total')
+    other = fields.Float(compute='compute_final_total')
+    final_total = fields.Float('Total After shipping and Other',compute='compute_final_total')
+    def compute_final_total(self):
+        for rec in self:
+            if rec.invoice_origin:
+                po = self.env['purchase.order'].search(
+                    [('name', '=', rec.invoice_origin)])
+                if po:
+                    rec.shipping = po.shipping
+                    rec.other = po.other
+                    rec.final_total = po.final_total
+                else:
+                    rec.shipping = 0
+                    rec.other = 0
+                    rec.final_total = 0
+            else:
+                rec.shipping = 0
+                rec.other = 0
+                rec.final_total = 0
+
 
 
     def invoice_print(self):
