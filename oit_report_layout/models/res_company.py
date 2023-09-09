@@ -1,4 +1,4 @@
-""" Initialize Res Company """
+F""" Initialize Res Company """
 
 from dateutil.relativedelta import relativedelta
 
