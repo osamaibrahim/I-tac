@@ -38,4 +38,5 @@ class SaleOrder(models.Model):
         for rec in self:
             if not rec.is_approved:
                 raise ValidationError('Quotation must be approved first !')
+            rec.state = 'sent'
         return res

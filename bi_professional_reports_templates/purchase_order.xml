@@ -1,0 +1,23 @@
+<data>
+    <record id="inherit_purchase_order_form" model="ir.ui.view">
+        <field name="name">inherit.purchase.order.form</field>
+        <field name="model">purchase.order</field>
+        <!--<field name="groups_id" eval="[(4, ref(''))]"/>-->
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_ref" position="after">
+                <field name="fob"/>
+                <field name="ship_via"/>
+                <field name="shipping"/>
+                <field name="other"/>
+                <field name="debit_account_shipping_id" options="{'no_open': True, 'no_create': True}" invisible="1"/>
+                <field name="credit_account_shipping_id" options="{'no_open': True, 'no_create': True}" invisible="1"/>
+                <field name="debit_account_other_id" options="{'no_open': True, 'no_create': True}" invisible="1"/>
+                <field name="credit_account_other_id" options="{'no_open': True, 'no_create': True}" invisible="1"/>
+            </field>
+            <field name="tax_totals_json" position="after">
+                <field name="final_total"/>
+            </field>
+        </field>
+    </record>
+</data>

@@ -12,7 +12,8 @@
         'account',
         'l10n_gcc_invoice',
         'l10n_sa_invoice',
-        'oit_sale_report'
+        'oit_sale_report',
+        'bi_professional_reports_templates'
     ],
     'data': [
         # 'security/ir.model.access.csv',

@@ -17,7 +17,7 @@
     'website': 'https://www.browseinfo.in',
     'depends': ['base', 'account', 'sale', 'purchase', 'stock', 'sale_stock', 'base_vat','sale_management','purchase_stock'],
     'data': [
-
+        'security/ir.model.access.csv',
         "res_company.xml",
 
         "invoice_report/fency_report_account.xml",
@@ -41,11 +41,14 @@
         "purchase_report/modern_report_purchasequotation.xml",
         "purchase_report/odoo_standard_report_purchaseorder.xml",
         "purchase_report/odoo_standard_report_purchasequotation.xml",
+        "purchase_order.xml",
 
         "sale_report/classic_report_saleorder.xml",
         "sale_report/fency_report_saleorder.xml",
         "sale_report/modern_report_saleorder.xml",
         "sale_report/odoo_standard_report_saleorder.xml",
+
+        'wizard/account_wizard_view.xml',
              ],
     'demo': [],
     'test': [],

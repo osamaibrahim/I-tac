@@ -9,11 +9,11 @@
                 <field name="num_word" invisible="1"/>
             </xpath>
             <xpath expr="//field[@name='partner_id']" position="after">
-                <field name="lc_number"/>
-                <field name="po_box"/>
-                <field name="project_name"/>
-                <field name="date_of_issue"/>
-                <field name="no_show"/>
+                <field name="lc_number" attrs="{'invisible':[('move_type','not in',['in_invoice','out_invoice'])]}"/>
+                <field name="po_box" attrs="{'invisible':[('move_type','not in',['in_invoice','out_invoice'])]}"/>
+                <field name="project_name" attrs="{'invisible':[('move_type','not in',['in_invoice','out_invoice'])]}"/>
+                <field name="date_of_issue" attrs="{'invisible':[('move_type','not in',['in_invoice','out_invoice'])]}"/>
+                <field name="no_show" attrs="{'invisible':[('move_type','not in',['in_invoice','out_invoice'])]}"/>
             </xpath>
         </field>
     </record>
