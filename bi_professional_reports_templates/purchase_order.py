@@ -51,7 +51,8 @@ class PurchaseOrder(models.Model):
     journal_id = fields.Many2one(
         'account.journal', 'journal',
         track_visibility='always',
-        readonly=True,
+        readonly=False,
+        domain="[('type', '=', 'purchase')]",
         states={'draft': [('readonly', False)]},
         default=lambda self: self.env.company.journal_id.id
     )
@@ -106,6 +107,7 @@ class PurchaseOrder(models.Model):
                         'line_ids': vals
                     })
                 move.sudo().action_post()
+
     def action_create_invoice(self):
         res = super(PurchaseOrder, self).action_create_invoice()
         self.action_confirm_for_entry()
