@@ -8,21 +8,14 @@
             <!--        <field name="priority" eval="100"/>-->
             <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//block[last()]" position="after">
+                <xpath expr="//app[@name='sale_management']/block[last()]" position="after">
                     <block title="Quotation Report" name="quotation_report">
                         <setting
-                                title="This adds a dropshipping route to apply on products in order to request your vendors to deliver to your customers. A product to dropship will generate a purchase request for quotation once the sales order confirmed. This is a on-demand flow. The requested delivery address will be the customer delivery address and not your warehouse."
-                                help="Request your vendors to deliver to your customers">
-                            <div class="row mt16 o_settings_container">
-                                <div class="col-12 col-lg-6 o_setting_box">
-                                    <div class="o_setting_right_pane">
-                                        <label for="email_body_template"/>
-                                        <div>
-                                            <field name="email_body_template"/>
-                                        </div>
+                                title="This adds a email Body Templates">
+                                    <label for="email_body_template"/>
+                                    <div>
+                                        <field name="email_body_template"/>
                                     </div>
-                                </div>
-                            </div>
                         </setting>
                     </block>
                 </xpath>
