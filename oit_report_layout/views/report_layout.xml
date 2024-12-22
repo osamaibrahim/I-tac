@@ -50,25 +50,5 @@
         </xpath>
 
     </template>
-
-    <!--    <template id="internal_layout"-->
-    <!--              inherit_id="web.internal_layout">-->
-    <!--        <xpath expr="//div[@class='article']" position="after">-->
-    <!--            <div class="footer">-->
-    <!--                <div class="col-3 mb4">-->
-    <!--                    <img style="max-width: 800%;max-height:200px;" align="center" t-if="env.company.footer"-->
-    <!--                         t-att-src="image_data_uri(env.company.footer)" alt="Logo"/>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        </xpath>-->
-    <!--&lt;!&ndash;        <xpath expr="//div[@class='header']" position="replace">&ndash;&gt;-->
-    <!--&lt;!&ndash;            <div class="header">&ndash;&gt;-->
-    <!--&lt;!&ndash;                <div class="col-3 mb4">&ndash;&gt;-->
-    <!--&lt;!&ndash;                    <img style="max-width: 800%;max-height:200px;" align="center" t-if="env.company.header"&ndash;&gt;-->
-    <!--&lt;!&ndash;                         t-att-src="image_data_uri(env.company.header)" alt="Logo"/>&ndash;&gt;-->
-    <!--&lt;!&ndash;                </div>&ndash;&gt;-->
-    <!--&lt;!&ndash;            </div>&ndash;&gt;-->
-    <!--&lt;!&ndash;        </xpath>&ndash;&gt;-->
-
-    <!--    </template>-->
+    
 </data>
