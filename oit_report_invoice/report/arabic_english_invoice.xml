@@ -52,6 +52,7 @@
                 </div>
             </h3>
         </xpath>
+        
         <xpath expr="//div[@id='informations']" position="replace">
             <div class="row col-12">
                 <div class="col-4">
