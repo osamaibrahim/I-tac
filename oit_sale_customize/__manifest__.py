@@ -15,13 +15,10 @@
         'sales_team',
     ],
     'data': [
-        # 'security/ir.model.access.csv',
         # 'report/',
         # 'views/sale_order.xml',
     ],
-    'demo': [
-        # 'demo/',
-    ],
+
     'installable': True,
     'application': True,
     'auto_install': False,
