@@ -28,8 +28,7 @@
         'views/hr_department.xml',
         # reports
         'reports/sale_quote_report.xml',
-        'reports/layouts.xml',
-        'reports/sale_quote_report.xml',
+        # 'reports/layouts.xml',
     ],
     'demo': [
         # 'demo/',
