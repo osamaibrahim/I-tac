@@ -32,6 +32,7 @@
                         <field name="notes"/>
                     </page>
                 </xpath>
+                
             </field>
         </record>
 
