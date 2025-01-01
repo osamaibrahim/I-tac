@@ -15,7 +15,7 @@
 
     'license': 'AGPL-3',
 
-    'depends': ['account', 'l10n_gcc_invoice', 'l10n_sa', 'oit_sale_report'],
+    'depends': ['account', 'l10n_gcc_invoice', 'l10n_sa', 'oit_sale_report', 'account_external_tax'],
     'data': [
         # security
         # 'security/ir.model.access.csv',
