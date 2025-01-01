@@ -17,6 +17,7 @@
         'oit_sale_customize',
         'sale_order_line_product_image',
         'sale_external_tax',
+        'sale_external_tax',
     ],
     'data': [
         # security
