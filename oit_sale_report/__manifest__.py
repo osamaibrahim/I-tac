@@ -20,7 +20,7 @@
     ],
     'data': [
         # security
-        'security/ir.model.access.csv',
+        # 'security/ir.model.access.csv',
         # views
         # 'views/res_config_settings_views.xml',
         # 'views/sale_order.xml',
