@@ -13,7 +13,7 @@ class ResCompany(models.Model):
     footer = fields.Binary(string="Company Footer")
 
 
-class BaseDocumentLayout(models.TransientModel):
+class BaseDocumentLayout(models.Model):
     _inherit = 'base.document.layout'
 
     header = fields.Binary(related="company_id.header")

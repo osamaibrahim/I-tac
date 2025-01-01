@@ -10,7 +10,7 @@ class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
     email_body_template = fields.Text(string='Email Body Template', compute='compute_email_body_template')
-    # subject = fields.Char('Subject')
+    subject = fields.Char('Subject')
     child_ids = fields.Many2many('res.partner', compute='compute_child_ids')
     attention_id = fields.Many2one('res.partner',)
     notes = fields.Text('Notes')
