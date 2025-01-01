@@ -16,7 +16,7 @@
                 </xpath>
 
                 <xpath expr="//field[@name='partner_shipping_id']" position="after">
-<!--                    <field name="subject"/>-->
+                    <field name="subject"/>
                     <field name="department_id"/>
                     <field name="attention_id" domain="[('id', 'in', child_ids)]"/>
                     <field name="email_body_template" invisible="1"/>
