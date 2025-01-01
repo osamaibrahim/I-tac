@@ -20,9 +20,9 @@
         # security
         # 'security/ir.model.access.csv',
         # views
-        'views/account_move.xml',
+        # 'views/account_move.xml',
         # report
-        'report/arabic_english_invoice.xml',
+        # 'report/arabic_english_invoice.xml',
     ],
     'demo': [
         # 'demo/',
