@@ -18,4 +18,3 @@ class BaseDocumentLayout(models.TransientModel):
 
     header = fields.Binary(related="company_id.header")
     footer = fields.Binary(related="company_id.footer")
-
