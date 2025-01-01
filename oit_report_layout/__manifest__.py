@@ -20,8 +20,8 @@
 
     'data': [
         # views
-        # 'views/res_company.xml',
-        # 'views/report_layout.xml',
+        'views/res_company.xml',
+        'views/report_layout.xml',
     ],
 
     'installable': True,

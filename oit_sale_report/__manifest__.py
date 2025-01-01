@@ -19,15 +19,15 @@
     ],
     'data': [
         # security
-        # 'security/ir.model.access.csv',
-        # # views
-        # 'views/res_config_settings_views.xml',
-        # 'views/sale_order.xml',
-        # 'views/res_user.xml',
-        # 'views/product_template.xml',
-        # 'views/hr_department.xml',
-        # # reports
-        # 'reports/sale_quote_report.xml',
+        'security/ir.model.access.csv',
+        # views
+        'views/res_config_settings_views.xml',
+        'views/sale_order.xml',
+        'views/res_user.xml',
+        'views/product_template.xml',
+        'views/hr_department.xml',
+        # reports
+        'reports/sale_quote_report.xml',
         # 'reports/layouts.xml',
     ],
     'demo': [
