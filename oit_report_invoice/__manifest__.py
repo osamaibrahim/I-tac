@@ -17,8 +17,6 @@
 
     'depends': ['account', 'l10n_gcc_invoice', 'l10n_sa', 'oit_sale_report'],
     'data': [
-        # security
-        # 'security/ir.model.access.csv',
         # views
         'views/account_move.xml',
         # report
