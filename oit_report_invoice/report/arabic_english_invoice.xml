@@ -55,21 +55,22 @@
         
         <xpath expr="//div[@id='informations']" position="replace">
             <div class="row col-12">
-                <div class="col-4">
-                    <table class="table table-bordered" style="line-height:.5border:5px;margin-right:50px">
+                <div class="col-5" style="margin-right:10px">
+                    <table class="table table-bordered" style="line-height:.5border">
                         <tbody>
-                            <tr style="font-weight:bold;line-height:40%;color:#71a8e2">
+                            <tr style="font-weight:bold;line-height:60%;color:#71a8e2">
                                 <td colspan="2" width="100%" class="text-center">Bill To</td>
                             </tr>
 
-                            <tr style="font-weight:bold;line-height:40%;color:#71a8e2">
+                            <tr style="font-weight:bold;line-height:60%;color:#71a8e2">
+                                <td width="30%" style="font-size:10px" class="text-center">Client</td>
                                 <td width="70%" style="font-size:12px" class="text-center">
                                     <span t-field="o.sudo().partner_id.name"/>
                                 </td>
-                                <td width="30%" style="font-size:10px" class="text-center">Client</td>
                             </tr>
 
-                            <tr style="font-weight:bold;line-height:75%;color:#71a8e2">
+                            <tr style="font-weight:bold;line-height:90%;color:#71a8e2">
+                                <td width="30%" style="font-size:10px" class="text-center">Address</td>
                                 <td width="70%" style="font-size:12px" class="text-center">
                                     <span
                                             t-field="o.sudo().partner_id.street"/>
@@ -80,49 +81,47 @@
                                     -
                                     <span t-field="o.sudo().partner_id.city"/>
                                 </td>
-                                <td width="30%" style="font-size:10px" class="text-center">Address</td>
                             </tr>
 
-                            <t>
-                                <tr style="font-weight:bold;line-height:40%;color:#71a8e2">
-                                    <td style="font-size:12px" class="text-center">
-                                        <span t-field="o.sudo().partner_id.ref"/>
-                                    </td>
-                                    <td style="font-size:10px" class="text-center">Tax ID</td>
-                                </tr>
-                            </t>
+                                
+                            <tr style="font-weight:bold;line-height:60%;color:#71a8e2">
+                                <td style="font-size:10px" class="text-center">Tax ID</td>
+                                <td style="font-size:12px" class="text-center">
+                                    <span t-field="o.sudo().partner_id.ref"/>
+                                </td>
+                            </tr>
 
-                            <tr style="font-weight:bold;line-height:40%;color:#71a8e2">
+                            <tr style="font-weight:bold;line-height:60%;color:#71a8e2">
+                                <td style="font-size:10px" class="text-center">PO BOX:</td>
                                 <td style="font-size:12px" class="text-center">
                                     <span t-field="o.po_box"/>
                                 </td>
-                                <td style="font-size:10px" class="text-center">PO BOX:</td>
                             </tr>
-                            <tr style="font-weight:bold;line-height:40%;color:#71a8e2">
+                            <tr style="font-weight:bold;line-height:60%;color:#71a8e2">
+                                <td style="font-size:10px" class="text-center">Project Name</td>
                                 <td style="font-size:12px" class="text-center">
                                     <span t-field="o.project_name"/>
                                 </td>
-                                <td style="font-size:10px" class="text-center">Project Name</td>
                             </tr>
 
-                            <tr style="font-weight:bold;line-height:40%;color:#71a8e2">
+                            <tr style="font-weight:bold;line-height:60%;color:#71a8e2">
+                                <td style="font-size:10px" class="text-center">LC Number</td>
                                 <td style="font-size:12px" class="text-center">
                                     <span t-field="o.lc_number"/>
                                 </td>
-                                <td style="font-size:10px" class="text-center">LC Number</td>
                             </tr>
 
-                            <tr style="font-weight:bold;line-height:40%;color:#71a8e2">
+                            <tr style="font-weight:bold;line-height:60%;color:#71a8e2">
+                                <td style="font-size:10px" class="text-center">Date of Issue</td>
                                 <td style="font-size:12px" class="text-center">
                                     <span t-field="o.date_of_issue"/>
                                 </td>
-                                <td style="font-size:10px" class="text-center">Date of Issue</td>
                             </tr>
                             <tr></tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="col-1"/>
+                <!-- <div class="col-1"/> -->
                 <div class="col-2">
                     <tr>
                         <td>
@@ -141,10 +140,10 @@
                 </div>
 
 
-                <div class="col-1"/>
-                <div class="col-4">
+                <!-- <div class="col-1"/> -->
+                <div class="col-5">
                     <table class="table table-bordered" style="border:5px;">
-                        <tr style="font-weight:bold;line-height:40%;color:#71a8e2">
+                        <tr style="font-weight:bold;line-height:60%;color:#71a8e2">
                             <td colspan="2" width="100%" class="text-center">Ship To</td>
                         </tr>
 
@@ -206,14 +205,14 @@
                 </div>
             </p>
 
-            <br/>
+            <!-- <br/> -->
             <div class="row">
                 <div class="col-9" style="font-weight: bold;">
                     Comments or special instructions:
                 </div>
             </div>
-            <p t-field="o.narration" class="mt-4"/>
-            <br/>
+            <p t-field="o.narration"/>
+            <!-- <br/> -->
         </xpath>
     </template>
 </odoo>
