@@ -12,9 +12,9 @@
                     <br/>
                     <hr/>
                     <p>
-                        <span class="vat-right" style="margin-right:110px">R.C   </span>
+                        <span class="vat-right" style="margin-right:50px">R.C   </span>
                         <span class="vat-center">  2050152442  </span>
-                        <span class="vat-left" dir="rtl" style="margin-left:110px">رقم السجل التجاري</span>
+                        <span class="vat-left" dir="rtl" style="margin-left:50px">رقم السجل التجاري</span>
                     </p>
                 </div>
                 <div class="col-6 info-ar" style="direction: rtl; border: solid 1px black;padding:5px">
@@ -27,8 +27,8 @@
                     <br/>
                     <hr/>
                     <p>
-                        <span class="vat-left" dir="rtl" style="margin-left:70px">   رقم الضريبي</span>
-                        <span class="vat-right" style="margin-right:70px">VAT NO   </span>
+                        <span class="vat-left" dir="rtl" style="margin-left:30px">   رقم الضريبي</span>
+                        <span class="vat-right" style="margin-right:30px">VAT NO   </span>
                         <span class="vat-center">  311127380400003  </span>
                     </p>
                 </div>
