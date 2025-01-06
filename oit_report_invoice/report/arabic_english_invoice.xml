@@ -2,25 +2,35 @@
     <template id="edit_arabic_english_invoice" inherit_id="l10n_gcc_invoice.arabic_english_invoice">
         <xpath expr="//t[@t-set='address']" position="replace">
             <div class="company_info row">
-                <div class="col-6 info-en">
+                <div class="col-6 info-en" style="border: solid 1px black;padding:5px">
                     <h5>Industrial Trading and Contracting Group</h5>
                     <p>
                         Saudi Arabia, Dammam Unit No 62, 2nd Industrial Estate,
                         <br/>
                         166st x 23st Factory, Dammam 32275.
                     </p>
+                    <br/>
                     <hr/>
-                    <p>رقم السجل التجاري 2050152442 R.C</p>
+                    <p>
+                        <span class="vat-right" style="margin-right:110px">R.C   </span>
+                        <span class="vat-center">  2050152442  </span>
+                        <span class="vat-left" dir="rtl" style="margin-left:110px">رقم السجل التجاري</span>
+                    </p>
                 </div>
-                <div class="col-6 info-ar" style="direction: rtl;">
+                <div class="col-6 info-ar" style="direction: rtl; border: solid 1px black;padding:5px">
                     <h5>شركة المعامالت التصنيعة للمقاوالت</h5>
                     <p>
                         المملكة العربية السعودية، الدمام
                         <br/>
                         وحدة رقم ،62 المنطقة الصناعية الثانية،الدمام.
                     </p>
+                    <br/>
                     <hr/>
-                    <p>رقم الضريبي 311127380400003 No V</p>
+                    <p>
+                        <span class="vat-left" dir="rtl" style="margin-left:70px">   رقم الضريبي</span>
+                        <span class="vat-right" style="margin-right:70px">VAT NO   </span>
+                        <span class="vat-center">  311127380400003  </span>
+                    </p>
                 </div>
             </div>
         </xpath>
@@ -53,7 +63,7 @@
                         <tr>
                             <td colspan="2" width="100%" style="padding-left: 10px;">
                                 <strong>Customer Name in Arabic:</strong>
-                                <!--                                <span t-field="o.partner_name_ar"/>-->
+                                <span t-field="o.partner_name_ar"/>
                             </td>
                         </tr>
                         <tr>
@@ -71,7 +81,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2" width="100%" style="padding-left: 10px;">
+                            <td colspan="2" width="90%" style="padding-left: 10px;">
                                 <strong>Tax Vat No o / الرقم الضريبي</strong>
                                 <p>
                                     <span t-field="o.sudo().partner_id.ref"/>
@@ -79,7 +89,7 @@
                             </td>
                         </tr>
                         <tr t-if="o.move_type == 'in_invoice'" style="padding-left: 10px;">
-                            <td colspan="2" width="100%">
+                            <td colspan="2" width="90%">
                                 <strong>PO Number / امر الشراء</strong>
                                 <p>
                                     <span t-field="o.purchase_order_id.name"/>
@@ -87,7 +97,7 @@
                             </td>
                         </tr>
                         <tr t-if="o.move_type == 'out_invoice'">
-                            <td colspan="2" width="100%" style="padding-left: 10px;">
+                            <td colspan="2" width="90%" style="padding-left: 10px;">
                                 <strong>SO Number / امر البيع</strong>
                                 <p>
                                     <span t-field="o.sale_order_id.name"/>
@@ -97,8 +107,11 @@
                     </table>
                 </div>
 
+                <div class="col-1">
+                </div>
+
                 <!-- Address and Contact Details -->
-                <div class="col-6" style="margin-bottom: 20px;">
+                <div class="col-5" style="margin-bottom: 20px;">
                     <table class="table table-bordered" style="line-height:1.5; border-collapse: collapse;">
                         <tr>
                             <td colspan="2" width="100%" style="padding-left: 10px;">
