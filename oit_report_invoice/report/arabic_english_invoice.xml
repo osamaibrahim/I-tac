@@ -1,168 +1,152 @@
 <odoo>
     <template id="edit_arabic_english_invoice" inherit_id="l10n_gcc_invoice.arabic_english_invoice">
-        <xpath expr="//t[@t-set='address']" position="replace"></xpath>
-        
-        <xpath expr="//h3" position="replace">
-            <h3>
-                <br/>
-                <div class="row">
-                    <div class="col-4" style="text-align:left">
-                        <span t-if="o.move_type == 'out_invoice' and o.state == 'posted'">
-                            Tax Invoice
-                        </span>
-                        <span t-if="o.move_type == 'out_invoice' and o.state == 'draft'">
-                            Draft Invoice
-                        </span>
-                        <span t-if="o.move_type == 'out_invoice' and o.state == 'cancel'">
-                            Cancelled Invoice
-                        </span>
-                        <span t-if="o.move_type == 'out_refund'">
-                            Credit Note
-                        </span>
-                        <span t-if="o.move_type == 'in_refund'">
-                            Vendor Credit Note
-                        </span>
-                        <span t-if="o.move_type == 'in_invoice'">
-                            Vendor Bill
-                        </span>
-                    </div>
-                    <div class="col-4 text-center">
-                        <span t-if="o.name != '/'" t-field="o.name"/>
-                    </div>
-                    <div class="col-4" style="text-align:right">
-                        <span t-if="o.move_type == 'out_invoice' and o.state == 'posted'">
-                            فاتورة ضريبية
-                        </span>
-                        <span t-if="o.move_type == 'out_invoice' and o.state == 'draft'">
-                            مسودة فاتورة
-                        </span>
-                        <span t-if="o.move_type == 'out_invoice' and o.state == 'cancel'">
-                            فاتورة ملغاة
-                        </span>
-                        <span t-if="o.move_type == 'out_refund'">
-                            إشعار خصم
-                        </span>
-                        <span t-if="o.move_type == 'in_refund'">
-                            إشعار خصم المورد
-                        </span>
-                        <span t-if="o.move_type == 'in_invoice'">
-                            فاتورة المورد
-                        </span>
-                    </div>
+        <xpath expr="//t[@t-set='address']" position="replace">
+            <div class="company_info row">
+                <div class="col-6 info-en">
+                    <h5>Industrial Trading and Contracting Group</h5>
+                    <p>
+                        Saudi Arabia, Dammam Unit No 62, 2nd Industrial Estate,
+                        <br/>
+                        166st x 23st Factory, Dammam 32275.
+                    </p>
+                    <hr/>
+                    <p>رقم السجل التجاري 2050152442 R.C</p>
                 </div>
-            </h3>
+                <div class="col-6 info-ar" style="direction: rtl;">
+                    <h5>شركة المعامالت التصنيعة للمقاوالت</h5>
+                    <p>
+                        المملكة العربية السعودية، الدمام
+                        <br/>
+                        وحدة رقم ،62 المنطقة الصناعية الثانية،الدمام.
+                    </p>
+                    <hr/>
+                    <p>رقم الضريبي 311127380400003 No V</p>
+                </div>
+            </div>
         </xpath>
-        
+
+        <xpath expr="//h3" position="replace">
+            <!-- Invoice Title -->
+            <div style="direction: rtl;text-align: center; font-size: 20px; margin-bottom: 30px;">
+                <hr style="direction: rtl; width: 80%"/>
+                <strong>فاتورة ضريبية /
+                    <span>TAX Invoice</span>
+                </strong>
+                <p>
+                    <span t-field="o.name"/>
+                </p>
+                <hr style="direction: rtl; width: 80%"/>
+            </div>
+        </xpath>
+
         <xpath expr="//div[@id='informations']" position="replace">
-            <div class="row col-12">
-                <div class="col-4">
-                    <table class="table table-bordered" style="line-height:.5border:5px;margin-right:50px">
-                        <tbody>
-                            <tr style="font-weight:bold;line-height:40%;color:#71a8e2">
-                                <td colspan="2" width="100%" class="text-center">Bill To</td>
-                            </tr>
-
-                            <tr style="font-weight:bold;line-height:40%;color:#71a8e2">
-                                <td width="70%" style="font-size:12px" class="text-center">
-                                    <span t-field="o.sudo().partner_id.name"/>
-                                </td>
-                                <td width="30%" style="font-size:10px" class="text-center">Client</td>
-                            </tr>
-
-                            <tr style="font-weight:bold;line-height:75%;color:#71a8e2">
-                                <td width="70%" style="font-size:12px" class="text-center">
-                                    <span
-                                            t-field="o.sudo().partner_id.street"/>
+            <div class="row">
+                <!-- Invoice Details -->
+                <div class="col-6" style="margin-bottom: 20px;">
+                    <table class="table table-bordered" style="line-height:1.5; border-collapse: collapse;">
+                        <tr>
+                            <td colspan="2" width="100%" style="padding-left: 10px;">
+                                <h3>Bill To:</h3>
+                                <span t-field="o.partner_id.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" width="100%" style="padding-left: 10px;">
+                                <strong>Customer Name in Arabic:</strong>
+                                <!--                                <span t-field="o.partner_name_ar"/>-->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" width="100%" style="padding-left: 10px;">
+                                <strong>Address / عنوان العميل</strong>
+                                <p>
+                                    <span t-field="o.sudo().partner_id.street"/>
                                     -
                                     <span t-field="o.sudo().partner_id.street2"/>
                                     -
                                     <span t-field="o.partner_id.state_id.name"/>
                                     -
                                     <span t-field="o.sudo().partner_id.city"/>
-                                </td>
-                                <td width="30%" style="font-size:10px" class="text-center">Address</td>
-                            </tr>
-
-                            <t>
-                                <tr style="font-weight:bold;line-height:40%;color:#71a8e2">
-                                    <td style="font-size:12px" class="text-center">
-                                        <span t-field="o.sudo().partner_id.ref"/>
-                                    </td>
-                                    <td style="font-size:10px" class="text-center">Tax ID</td>
-                                </tr>
-                            </t>
-
-                            <tr style="font-weight:bold;line-height:40%;color:#71a8e2">
-                                <td style="font-size:12px" class="text-center">
-                                    <span t-field="o.po_box"/>
-                                </td>
-                                <td style="font-size:10px" class="text-center">PO BOX:</td>
-                            </tr>
-                            <tr style="font-weight:bold;line-height:40%;color:#71a8e2">
-                                <td style="font-size:12px" class="text-center">
-                                    <span t-field="o.project_name"/>
-                                </td>
-                                <td style="font-size:10px" class="text-center">Project Name</td>
-                            </tr>
-
-                            <tr style="font-weight:bold;line-height:40%;color:#71a8e2">
-                                <td style="font-size:12px" class="text-center">
-                                    <span t-field="o.lc_number"/>
-                                </td>
-                                <td style="font-size:10px" class="text-center">LC Number</td>
-                            </tr>
-
-                            <tr style="font-weight:bold;line-height:40%;color:#71a8e2">
-                                <td style="font-size:12px" class="text-center">
-                                    <span t-field="o.date_of_issue"/>
-                                </td>
-                                <td style="font-size:10px" class="text-center">Date of Issue</td>
-                            </tr>
-                            <tr></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-1"/>
-                <div class="col-2">
-                    <tr>
-                        <td>
-                            <img t-if="o.sudo().l10n_sa_qr_code_str"
-                                 t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s'%('QR', o.sudo().l10n_sa_qr_code_str, 130, 130)"/>
-
-                        </td>
-                    </tr>
-                    <div class="text-center">
-                        <strong>Vat:</strong>
-                        <span t-field="o.sudo().company_id.vat"/>
-                        <br/>
-                        <strong>CR No:</strong>
-                        <span t-field="o.sudo().company_id.company_registry"/>
-                    </div>
-                </div>
-
-
-                <div class="col-1"/>
-                <div class="col-4">
-                    <table class="table table-bordered" style="border:5px;">
-                        <tr style="font-weight:bold;line-height:40%;color:#71a8e2">
-                            <td colspan="2" width="100%" class="text-center">Ship To</td>
+                                </p>
+                            </td>
                         </tr>
-
-                        <tr style="font-weight:bold;line-height:100%;color:#71a8e2">
-                            <td colspan="2" width="100%" style="font-size:12px" class="text-center">
-                                <p t-field="o.partner_shipping_id.name"/>
-                                <span t-field="o.partner_shipping_id.street"/>
-                                -
-                                <span t-field="o.partner_shipping_id.state_id.name"/>
-                                -
-                                <span t-field="o.partner_shipping_id.country_id.name"/>
+                        <tr>
+                            <td colspan="2" width="100%" style="padding-left: 10px;">
+                                <strong>Tax Vat No o / الرقم الضريبي</strong>
+                                <p>
+                                    <span t-field="o.sudo().partner_id.ref"/>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr t-if="o.move_type == 'in_invoice'" style="padding-left: 10px;">
+                            <td colspan="2" width="100%">
+                                <strong>PO Number / امر الشراء</strong>
+                                <p>
+                                    <span t-field="o.purchase_order_id.name"/>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr t-if="o.move_type == 'out_invoice'">
+                            <td colspan="2" width="100%" style="padding-left: 10px;">
+                                <strong>SO Number / امر البيع</strong>
+                                <p>
+                                    <span t-field="o.sale_order_id.name"/>
+                                </p>
                             </td>
                         </tr>
                     </table>
                 </div>
 
+                <!-- Address and Contact Details -->
+                <div class="col-6" style="margin-bottom: 20px;">
+                    <table class="table table-bordered" style="line-height:1.5; border-collapse: collapse;">
+                        <tr>
+                            <td colspan="2" width="100%" style="padding-left: 10px;">
+                                <h3 t-if="o.move_type == 'out_invoice' and o.state == 'posted'">Tax Invoice / تاريخ
+                                    الفاتوره
+                                </h3>
+                                <h3 t-if="o.move_type == 'out_invoice' and o.state == 'draft'">Draft Invoice / تاريخ
+                                    الفاتوره
+                                </h3>
+                                <h3 t-if="o.move_type == 'out_invoice' and o.state == 'cancel'">Cancelled Invoice /
+                                    تاريخ الفاتوره
+                                </h3>
+                                <h3 t-if="o.move_type == 'in_invoice'">Vendor Bill / تاريخ الفاتوره</h3>
+                                <span t-field="o.invoice_date"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" width="100%" style="padding-left: 10px;">
+                                <strong>Contract Person Name:</strong>
+                                <br/>
+                                <span t-field="o.invoice_user_id.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" width="100%" style="padding-left: 10px;">
+                                <strong>Email:</strong>
+                                <span t-field="o.invoice_user_id.email"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" width="100%" style="padding-left: 10px;">
+                                <strong>Phone:</strong>
+                                <span t-field="o.invoice_user_id.phone"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" width="100%" style="padding-left: 10px;">
+                                <strong>Contract on I-TAC Name:</strong>
+                                <span><br/>Avinash<br/>Avinash@itacgroup.com<br/>+966 541111111
+                                </span>
+                            </td>
+
+                        </tr>
+                    </table>
+                </div>
             </div>
         </xpath>
+
         <xpath expr="//p[@name='incoterm']" position="after">
             <br/>
             <br/>
@@ -206,14 +190,23 @@
                 </div>
             </p>
 
-            <br/>
+            <!-- <br/> -->
             <div class="row">
                 <div class="col-9" style="font-weight: bold;">
                     Comments or special instructions:
                 </div>
+                <div class="col-3">
+                    <tr>
+                        <td>
+                            <img t-if="o.sudo().l10n_sa_qr_code_str"
+                                 t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s'%('QR', o.sudo().l10n_sa_qr_code_str, 130, 130)"/>
+
+                        </td>
+                    </tr>
+                </div>
             </div>
-            <p t-field="o.narration" class="mt-4"/>
-            <br/>
+            <p t-field="o.narration"/>
+            <!-- <br/> -->
         </xpath>
     </template>
 </odoo>
