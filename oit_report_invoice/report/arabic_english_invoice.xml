@@ -1,7 +1,11 @@
 <odoo>
     <template id="edit_arabic_english_invoice" inherit_id="l10n_gcc_invoice.arabic_english_invoice">
+    <xpath expr="//div[hasclass('page')]" position="attributes">
+            <attribute name="style">font-family: arial;</attribute>
+        </xpath> 
+
         <xpath expr="//t[@t-set='address']" position="replace">
-            <div class="company_info row">
+            <div class="company_info row" style="font-family: arial;">
                 <div class="col-6 info-en" style="border: solid 1px black;padding:5px">
                     <h5>Industrial Trading and Contracting Group</h5>
                     <p>
@@ -37,7 +41,7 @@
 
         <xpath expr="//h3" position="replace">
             <!-- Invoice Title -->
-            <div style="direction: rtl;text-align: center; font-size: 20px; margin-bottom: 30px;">
+            <div style="direction: rtl;text-align: center; font-size: 20px; margin-bottom: 30px; font-family: arial;">
                 <hr style="direction: rtl; width: 80%"/>
                 <strong>فاتورة ضريبية /
                     <span>TAX Invoice</span>
@@ -50,7 +54,7 @@
         </xpath>
 
         <xpath expr="//div[@id='informations']" position="replace">
-            <div class="row">
+            <div class="row" style="font-family: arial;">
                 <!-- Invoice Details -->
                 <div class="col-6" style="margin-bottom: 20px;">
                     <table class="table table-bordered" style="line-height:1.5; border-collapse: collapse;">
@@ -63,7 +67,7 @@
                         <tr>
                             <td colspan="2" width="100%" style="padding-left: 10px;">
                                 <strong>Customer Name in Arabic:</strong>
-                                <span t-field="o.partner_name_ar"/>
+                                <span t-field="o.partner_id.name_ar"/>
                             </td>
                         </tr>
                         <tr>
@@ -163,7 +167,7 @@
         <xpath expr="//p[@name='incoterm']" position="after">
             <br/>
             <br/>
-            <tr>
+            <tr style="font-family: arial;"> 
                 <td>
                     <span>MR.</span>
                     <span t-field="o.user_id.name"/>
@@ -180,7 +184,7 @@
             <span t-field="o.no_show"/>
         </xpath>
         <xpath expr="//table[@name='invoice_line_table']" position="after">
-            <tr class="table table-condensed table-bordered">
+            <tr class="table table-condensed table-bordered" style="font-family: arial;">
                 <td style="text-align:center;">
                     <span></span>
                 </td>
@@ -191,7 +195,7 @@
         </xpath>
         <xpath expr="//p[@name='incoterm']" position="replace">
             <p t-if="o.move_type in ('out_invoice', 'in_refund') and o.payment_reference" name="payment_communication">
-                <div class="row">
+                <div class="row" style="font-family: arial;">
                     <div class="col-6 text-left">
                         FOR M/S KHUDAIR FOR TRADE AND CONT. CO.
                     </div>
@@ -205,7 +209,7 @@
 
             <!-- <br/> -->
             <div class="row">
-                <div class="col-9" style="font-weight: bold;">
+                <div class="col-9" style="font-weight: bold; font-family: arial;">
                     Comments or special instructions:
                 </div>
                 <div class="col-3">

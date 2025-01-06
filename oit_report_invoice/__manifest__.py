@@ -19,9 +19,17 @@
     'data': [
         # views
         'views/account_move.xml',
+        'views/partner_view.xml',
         # report
         'report/arabic_english_invoice.xml',
     ],
+
+    'assets': {
+        'web.report_assets_common': [
+            'oit_report_invoice/static/src/css/font.css',
+        ]
+    },
+
     'demo': [
         # 'demo/',
     ],
