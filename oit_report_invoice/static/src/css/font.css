@@ -1,4 +1,8 @@
 @font-face {
 font-family: "arial";
-src: url("/oit_report_invoice/static/src/fonts/ArialMdm.ttf")
+src: url("/oit_report_invoice/static/src/fonts/arial.ttf") format('truetype');
+}
+
+.page{
+    font-family: "arial" !important;
 }
