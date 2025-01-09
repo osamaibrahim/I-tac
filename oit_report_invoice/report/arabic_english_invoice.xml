@@ -194,7 +194,7 @@
             </tr>
         </xpath>
         <xpath expr="//p[@name='incoterm']" position="replace">
-            <p t-if="o.move_type in ('out_invoice', 'in_refund') and o.payment_reference" name="payment_communication">
+            <!-- <p t-if="o.move_type in ('out_invoice', 'in_refund') and o.payment_reference" name="payment_communication">
                 <div class="row" style="font-family: arial;">
                     <div class="col-6 text-left">
                         FOR M/S KHUDAIR FOR TRADE AND CONT. CO.
@@ -205,7 +205,7 @@
                         </p>
                     </div>
                 </div>
-            </p>
+            </p> -->
 
             <!-- <br/> -->
             <div class="row">
