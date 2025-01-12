@@ -9,7 +9,7 @@ from odoo.exceptions import UserError, ValidationError
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
-    state = fields.Selection([
+    state = fields.Selection(selection_add=[
         ('draft', 'Quotation'),
         ('approved', 'Approved'),
         ('sent', 'Quotation Sent'),

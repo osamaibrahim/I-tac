@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="oit_report_invoice_partner_name_arabic" model="ir.ui.view">
+            <field name="name">oit_report_invoice_partner_arabic</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//h1" position="after">
+                    <h1>
+                        <field name="name_ar" default_focus="1" placeholder="الاسم بالعربي ....."/>
+                    </h1>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>
