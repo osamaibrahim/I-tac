@@ -6,36 +6,70 @@
 
         <xpath expr="//t[@t-set='address']" position="replace">
             <div class="company_info row" style="font-family: arial;">
-                <div class="col-6 info-en" style="border: solid 1px black;padding:5px">
-                    <h6>Industrial Trading and Contracting Group</h6>
-                    <p>
-                        Saudi Arabia,Dammam Unit No 62,2nd Industrial Estate
-                        <br/>
-                        166st x 23st Factory, Dammam 32275.
-                    </p>
-                    <!-- <br/> -->
-                    <hr/>
-                    <span>
-                        <span class="vat-right" style="margin-right:50px">R.C   </span>
-                        <span class="vat-center">  2050152442  </span>
-                        <span class="vat-left" dir="rtl" style="margin-left:50px">رقم السجل التجاري</span>
-                    </span>
-                </div>
-                <div class="col-6 info-ar" style="direction: rtl; border: solid 1px black;padding:5px">
-                    <h6>شركة المعامالات التصنيعة للمقاوالات</h6>
-                    <p>
-                        المملكة العربية السعودية، الدمام
-                        <br/>
-                        وحدة رقم ،62 المنطقة الصناعية الثانية،الدمام.
-                    </p>
-                    <!-- <br/> -->
-                    <hr/>
-                    <span>
-                        <span class="vat-left" dir="rtl" style="margin-left:30px">   رقم الضريبي</span>
-                        <span class="vat-right" style="margin-right:30px">VAT NO   </span>
-                        <span class="vat-center">  311127380400003  </span>
-                    </span>
-                </div>
+                <t t-if="o.company_id.id == 1">
+                    <div class="col-6 info-en" style="border: solid 1px black;padding:5px">
+                        <h6>Industrial Trading and Contracting Group</h6>
+                        <p>
+                            Saudi Arabia,Dammam Unit No 62,2nd Industrial Estate
+                            <br/>
+                            166st x 23st Factory, Dammam 32275.
+                        </p>
+                        <!-- <br/> -->
+                        <hr/>
+                        <span>
+                            <span class="vat-right" style="margin-right:50px">R.C   </span>
+                            <span class="vat-center" t-field="o.company_id.company_registry"/>
+                            <span class="vat-left" dir="rtl" style="margin-left:50px">رقم السجل التجاري</span>
+                        </span>
+                    </div>
+                    <div class="col-6 info-ar" style="direction: rtl; border: solid 1px black;padding:5px">
+                        <h6>شركة المعامالات التصنيعة للمقاوالات</h6>
+                        <p>
+                            المملكة العربية السعودية، الدمام
+                            <br/>
+                            وحدة رقم ،62 المنطقة الصناعية الثانية،الدمام.
+                        </p>
+                        <!-- <br/> -->
+                        <hr/>
+                        <span>
+                            <span class="vat-left" dir="rtl" style="margin-left:30px">   رقم الضريبي</span>
+                            <span class="vat-right" style="margin-right:30px">VAT NO   </span>
+                            <span class="vat-center" t-field="o.company_id.vat"/>
+                        </span>
+                    </div>
+                </t>
+                <t t-else="">
+                    <div class="col-6 info-en" style="border: solid 1px black;padding:5px">
+                        <h6>Federal Arabia Industrial Company</h6>
+                        <p>
+                            Saudi Arabia
+                            <br/>
+                            7607, العليا.
+                        </p>
+                        <!-- <br/> -->
+                        <hr/>
+                        <span>
+                            <span class="vat-right" style="margin-right:50px">R.C   </span>
+                            <span class="vat-center" t-field="o.company_id.company_registry"/>
+                            <span class="vat-left" dir="rtl" style="margin-left:50px">رقم السجل التجاري</span>
+                        </span>
+                    </div>
+                    <div class="col-6 info-ar" style="direction: rtl; border: solid 1px black;padding:5px">
+                        <h6>شركة فيدرال العربية للصناعة</h6>
+                        <p>
+                            المملكة العربية السعودية
+                            <br/>
+                            7607, العليا.
+                        </p>
+                        <!-- <br/> -->
+                        <hr/>
+                        <span>
+                            <span class="vat-left" dir="rtl" style="margin-left:30px">   رقم الضريبي</span>
+                            <span class="vat-right" style="margin-right:30px">VAT NO   </span>
+                            <span class="vat-center" t-field="o.company_id.vat"/>
+                        </span>
+                    </div>
+                </t>
             </div>
         </xpath>
 
@@ -88,7 +122,7 @@
                             <td colspan="2" width="90%" style="padding-left: 10px;">
                                 <strong>Tax Vat No o / الرقم الضريبي</strong>
                                 <p>
-                                    <span t-field="o.sudo().partner_id.ref"/>
+                                    <span t-field="o.sudo().partner_id.vat"/>
                                 </p>
                             </td>
                         </tr>
