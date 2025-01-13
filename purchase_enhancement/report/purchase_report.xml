@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="purchaseorder_enhancement_inherit" inherit_id="purchase.report_purchaseorder_document">
+            <xpath expr="//div[@t-if='o.user_id']/div" position="after">
+                <div t-field="o.user_id.phone"/>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>
